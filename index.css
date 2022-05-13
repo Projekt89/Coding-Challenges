@@ -23,6 +23,25 @@ form input {
   border: 2px solid #777;
   border-radius: 4px;
   padding: 4px;
+  outline: none;
 }
 
 /* solution styles */
+.field {
+  overflow: hidden;
+}
+
+.field .tick {
+  color: rgba(101, 242, 62, 0);
+  transform: translateY(30px);
+  transition: all .1s ease-out;
+}
+
+.field input.validated {
+  border-color: rgba(101, 242, 62, 1)
+}
+
+.field input.validated + .tick {
+  transform: translateY(0);
+  color: rgba(101, 242, 62, 1);
+}
