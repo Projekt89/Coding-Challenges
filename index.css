@@ -14,12 +14,136 @@ main {
   padding: 140px 40px 40px;
   color: #bbb;
 }
+button {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+/* variables */
+:root {
+--main-color: #ccc;
+}
 
 /* solution styles */
+.menu header {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  width: 100%;
+  background-color: #222;
+}
 
+.menu .site-title {
+  color: var(--main-color);
+}
+
+/* Hamburger btn */
+.menu-btn-container {
+  height: 40px;
+  position: relative;
+  z-index: 1000;
+  width: 40px;
+}
+
+.menu .menu-btn {
+  box-sizing: border-box;
+  background-color: transparent;
+  position: fixed;
+  border: none;
+  width: 40px;
+  height: 36px;
+  border-top: 2px solid var(--main-color);
+  cursor: pointer;
+  transition: all .3s ease-out;
+  transform-origin: top left;
+}
+
+.menu-btn::before {
+  display: block;
+  content: '';
+  width: 40px;
+  margin-top: 10px;
+  border-top: 2px solid var(--main-color);
+  transition: all .1s ease-out;
+  transform-origin: center center;
+}
+
+.menu .menu-btn::after {
+  display: block;
+  content: '';
+  width: 40px;
+  margin-top: 12px;
+  border-top: 2px solid var(--main-color);
+  transition: all .3s ease-out;
+  transform-origin: center center;
+}
+
+/* Drawer styles */
+.main-nav {
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -200px;
+  background-color: #111;
+  transition: all .2s ease-in-out;
+}
+
+.main-nav ul {
+  margin-top: 150px;
+  margin-left: 20px;
+}
+
+.main-nav li {
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.main-nav a {
+  font-size: 1.8em;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--main-color);
+  cursor: pointer;
+  position: relative;
+}
+
+.main-nav a:after {
+  display: block;
+  content: '';
+  border-bottom: 2px solid var(--main-color);
+}
+
+.main-nav a:hover {
+  border-bottom: 2px solid var(--main-color);
+}
 
 
 /* open state */
+.menu .menu-btn.active {
+  width: 55px;
+  transform: rotate(45deg);
+}
+
+.menu-btn.active::before {
+  border-top: 2px solid transparent;
+  width: 0;
+  transform: rotate(-90deg) ;
+}
+
+.menu-btn.active::after {
+  width: 55px;
+  transform: rotate(-90deg) translateX(30px);
+}
+
+.show-drawer {
+  left: 0;
+}
 
 
 
